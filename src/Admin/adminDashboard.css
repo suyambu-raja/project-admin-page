@@ -4,17 +4,12 @@
     font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     display: flex;
 }
-
+/* 
 .open-close-arrow {
     display: flex;
     align-items: center;
     margin-left: 2rem;
-}
-
-.sidebar-main {
-    width: 250px;
-       transition:smooth 2s;
-}
+} */
 
 .sidebar {
     width: 250px;
@@ -28,10 +23,6 @@
     border-right: 2px solid rgb(202, 200, 200);
 }
 
-.reduce-sidebar-main {
-    width: 7%;
-}
-
 .reduce-sidebar {
     width: 100px;
     background-color: #fff;
@@ -41,16 +32,6 @@
     box-sizing: border-box;
     position: fixed;
     z-index: 1000;
-}
-
-@media (max-width:900px){
-    .sidebar-main{
-        display:none;
-    }
-
-    .sidebar{
-        display:none;
-    }
 }
 
 .sidebar-header {
@@ -133,6 +114,11 @@
 .close-sidebar{
     margin-top:-5rem;
     margin-left:1rem;
+    display:none;
+}
+
+.open-sidebar{
+    display:none;
 }
 
 .admin-dashboard-container {
@@ -142,7 +128,26 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    margin-left:1px;
+    margin-left:15.5rem;
+}
+
+
+@media (max-width:900px){
+    .sidebar{
+        display:none;
+    }
+
+    .open-sidebar{
+        display:block;
+    }
+
+    .close-sidebar{
+        display:block;
+    }
+
+    .admin-dashboard-container{
+        margin-left:0px;
+    } 
 }
 
 
