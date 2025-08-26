@@ -196,7 +196,7 @@ const AdminDashboard = () => {
 
     const [sideBar, setSideBar] = useState(true)
     const [listColor, setListColor] = useState(0)
-    let values=0
+    let values = 0
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth <= 900) {
@@ -214,14 +214,14 @@ const AdminDashboard = () => {
 
     return (
         <>
-            <div className="admin-dashboard-main-container">        
-                <div className= "sidebar" style={{ display: sideBar ? "block" : "none" }} >
+            <div className="admin-dashboard-main-container">
+                <div className="sidebar" style={{ display: sideBar ? "block" : "none" }} >
                     <div className="sidebar-header">
                         <LuFactory className="factory-icon" />
-                        <div style={{ display: sideBar ? "block" : "none" }}>
+                        <div>
                             <h3>Admin Dashboard</h3>
                             <p>Pipes Manufacturing</p>
-                        </div>    
+                        </div>
                         <FaXmark onClick={() => setSideBar(false)} className="close-sidebar" />
                     </div>
                     <ul className="nav-menu">
@@ -229,38 +229,38 @@ const AdminDashboard = () => {
                             onClick={() => setListColor(0)}
                         >
                             <MdOutlineDashboard className="dashboard-icon" />
-                            <span style={{ display: sideBar ? "block" : "none" }}>Dashboard</span>
+                            <span >Dashboard</span>
                         </li>
                         <li className={`nav-item ${listColor === 1 ? 'redbg' : ''}`}
                             onClick={() => setListColor(1)}
                         >
-                          <TbHomeHand className="items-icon" />
-                            <span style={{ display: sideBar ? "block" : "none" }}> Home Page</span>
+                            <TbHomeHand className="items-icon" />
+                            <span > Home Page</span>
                         </li>
                         <li className={`nav-item ${listColor === 2 ? 'redbg' : ''}`}
                             onClick={() => setListColor(2)}
                         >
-                           <GoPeople className="staff-manage-icon" />
-                            <span style={{ display: sideBar ? "block" : "none" }}>Staff Attendance</span>
+                            <GoPeople className="staff-manage-icon" />
+                            <span>Staff Attendance</span>
                         </li>
                         <li className={`nav-item ${listColor === 3 ? 'redbg' : ''}`}
                             onClick={() => setListColor(3)}
                         >
-                            <RiSecurePaymentFill  className="staff-manage-icon" />
-                            <span style={{ display: sideBar ? "block" : "none" }}>Payroll Tracking</span>
+                            <RiSecurePaymentFill className="staff-manage-icon" />
+                            <span >Payroll Tracking</span>
                         </li>
-                         <li className={`nav-item ${listColor === 4 ? 'redbg' : ''}`}
+                        <li className={`nav-item ${listColor === 4 ? 'redbg' : ''}`}
                             onClick={() => setListColor(4)}
                         >
                             <MdOutlineInventory className="staff-manage-icon" />
-                            <span style={{ display: sideBar ? "block" : "none" }}> Inventory Item management</span>
+                            <span > Inventory Item management</span>
                         </li>
-                         <li className={`nav-item ${listColor === 5 ? 'redbg' : ''}`}
+                        <li className={`nav-item ${listColor === 5 ? 'redbg' : ''}`}
                             onClick={() => setListColor(5)}
                         >
-                          <CiDeliveryTruck className="order-tracking-icon" />
-                            <span style={{ display: sideBar ? "block" : "none" }}> Order Tracking</span>
-                        </li>                   
+                            <CiDeliveryTruck className="order-tracking-icon" />
+                            <span> Order Tracking</span>
+                        </li>
                     </ul>
 
                 </div>
@@ -291,7 +291,7 @@ const AdminDashboard = () => {
                     </header>
 
                     <main className="main-content">
-                        
+
                         <div className="alert-box alert-yelLow">
                             <div className="alert-box-content">
                                 <FiAlertTriangle className="alert-box-icon" />
@@ -303,7 +303,7 @@ const AdminDashboard = () => {
                             </div>
                         </div>
 
-                        
+
                         <div className="alert-box alert-blue">
                             <div className="alert-box-content">
                                 <LuBell className="alert-box-icon" />
@@ -316,7 +316,7 @@ const AdminDashboard = () => {
                         </div>
                         <div className="alert-blue-last-updated"><span>Last updated: 5:43:05 PM</span><p></p></div>
 
-                        
+
                         <div className="overview-stats-grid">
                             {dummyData.overviewStats.map((stat) => (
                                 <div key={stat.id} className="stat-card">
@@ -333,9 +333,9 @@ const AdminDashboard = () => {
                             ))}
                         </div>
 
-                        
+
                         <div className="section-grid">
-                            
+
                             <div className="section-card recent-orders-section">
                                 <div className="section-header">
                                     <div className="section-title-container">
@@ -377,7 +377,7 @@ const AdminDashboard = () => {
                                         <h2 className="section-title">New Orders (24h)</h2>
                                     </div>
                                     <div className="no-of-items" style={{ background: "#6489f092" }}>
-                                         {dummyData.newOrders.length}
+                                        {dummyData.newOrders.length}
                                     </div>
                                 </div>
                                 <div>
@@ -386,7 +386,7 @@ const AdminDashboard = () => {
                                             <div>
                                                 <div className="item-id">{order.id} <span className={`item-color-indicator ${order.color === 'Medium' ? 'color-Medium' :
                                                     order.color === 'Urgent' ? 'color-Urgent' : order.color === "Low" ? "color-Low" :
-                                                        'color-High' 
+                                                        'color-High'
                                                     }`}>{order.color}</span></div>
                                                 <p className="item-customer">{order.customer}</p>
                                                 <p className="item-detail-extra">{order.product}</p>
@@ -410,7 +410,7 @@ const AdminDashboard = () => {
                                         </div>
 
                                         <div className="no-of-items" style={{ background: "#fedc5589" }}>
-                                          {dummyData.LowStockItems.length}
+                                            {dummyData.LowStockItems.length}
                                         </div>
                                     </div>
                                     <div>
