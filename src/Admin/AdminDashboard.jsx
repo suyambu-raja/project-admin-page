@@ -241,7 +241,7 @@ const AdminDashboard = () => {
                             onClick={() => setListColor(2)}
                         >
                             <GoPeople className="staff-manage-icon" />
-                            <span>Staff Attendance</span>
+                            <span>Staff Attendance Tracking</span>
                         </li>
                         <li className={`nav-item ${listColor === 3 ? 'redbg' : ''}`}
                             onClick={() => setListColor(3)}
