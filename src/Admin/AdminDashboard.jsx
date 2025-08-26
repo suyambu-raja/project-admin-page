@@ -20,6 +20,10 @@ import { MdOutlineDashboard } from "react-icons/md";
 import { LuFactory } from "react-icons/lu";
 import { BiMenuAltLeft } from "react-icons/bi";
 import { FaXmark } from "react-icons/fa6";
+import { FaBoxOpen } from "react-icons/fa6";
+import { RiSecurePaymentFill } from "react-icons/ri";
+import { MdOutlineInventory } from "react-icons/md";
+import { TbHomeHand } from "react-icons/tb";
 
 
 const dummyData = {
@@ -192,6 +196,7 @@ const AdminDashboard = () => {
 
     const [sideBar, setSideBar] = useState(true)
     const [listColor, setListColor] = useState(0)
+    let values=0
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth <= 900) {
@@ -210,23 +215,13 @@ const AdminDashboard = () => {
     return (
         <>
             <div className="admin-dashboard-main-container">        
-                <div className={`${sideBar ? "sidebar" : 'reduce-sidebar'}`} style={{ display: sideBar ? "block" : "none" }} >
+                <div className= "sidebar" style={{ display: sideBar ? "block" : "none" }} >
                     <div className="sidebar-header">
                         <LuFactory className="factory-icon" />
                         <div style={{ display: sideBar ? "block" : "none" }}>
                             <h3>Admin Dashboard</h3>
                             <p>Pipes Manufacturing</p>
-                        </div>
-                        {/*   <div className="open-close-arrow">
-                                <FaAnglesLeft
-                                    style={{ display: sideBar ? "block" : "none" }}
-                                    onClick={() => setSideBar(false)}
-                                />
-                                <FaAnglesRight
-                                    style={{ display: !sideBar ? "block" : "none" }}
-                                    onClick={() => setSideBar(true)}
-                                />
-                            </div>   */}
+                        </div>    
                         <FaXmark onClick={() => setSideBar(false)} className="close-sidebar" />
                     </div>
                     <ul className="nav-menu">
@@ -239,21 +234,33 @@ const AdminDashboard = () => {
                         <li className={`nav-item ${listColor === 1 ? 'redbg' : ''}`}
                             onClick={() => setListColor(1)}
                         >
-                            <BsBoxSeam className="items-icon" />
-                            <span style={{ display: sideBar ? "block" : "none" }}>Items Management</span>
+                          <TbHomeHand className="items-icon" />
+                            <span style={{ display: sideBar ? "block" : "none" }}> Home Page</span>
                         </li>
                         <li className={`nav-item ${listColor === 2 ? 'redbg' : ''}`}
                             onClick={() => setListColor(2)}
                         >
-                            <CiDeliveryTruck className="order-tracking-icon" />
-                            <span style={{ display: sideBar ? "block" : "none" }}>Order Tracking</span>
+                           <GoPeople className="staff-manage-icon" />
+                            <span style={{ display: sideBar ? "block" : "none" }}>Staff Attendance</span>
                         </li>
                         <li className={`nav-item ${listColor === 3 ? 'redbg' : ''}`}
                             onClick={() => setListColor(3)}
                         >
-                            <GoPeople className="staff-manage-icon" />
-                            <span style={{ display: sideBar ? "block" : "none" }}> Staff Management</span>
+                            <RiSecurePaymentFill  className="staff-manage-icon" />
+                            <span style={{ display: sideBar ? "block" : "none" }}>Payroll Tracking</span>
                         </li>
+                         <li className={`nav-item ${listColor === 4 ? 'redbg' : ''}`}
+                            onClick={() => setListColor(4)}
+                        >
+                            <MdOutlineInventory className="staff-manage-icon" />
+                            <span style={{ display: sideBar ? "block" : "none" }}> Inventory Item management</span>
+                        </li>
+                         <li className={`nav-item ${listColor === 5 ? 'redbg' : ''}`}
+                            onClick={() => setListColor(5)}
+                        >
+                          <CiDeliveryTruck className="order-tracking-icon" />
+                            <span style={{ display: sideBar ? "block" : "none" }}> Order Tracking</span>
+                        </li>                   
                     </ul>
 
                 </div>
@@ -291,7 +298,7 @@ const AdminDashboard = () => {
                                 <div>
                                     <p className="alert-box-title">Critical Stock Alert</p>
                                     <div className="alert-box-text">4 item(s) are critically Low on stock and need immediate restocking.
-                                        <span className="alert-box-link">Manage Inventory →<div></div></span></div>
+                                        <span className="alert-box-link yellow-box">Manage Inventory →<div></div></span></div>
                                 </div>
                             </div>
                         </div>
@@ -303,7 +310,7 @@ const AdminDashboard = () => {
                                 <div>
                                     <p className="alert-box-title">New Orders (5)</p>
                                     <div className="alert-box-text">You have 5 new order(s) in the last 24 hours that require attention.
-                                        <span className="alert-box-link">View Orders →<div></div></span></div>
+                                        <span className="alert-box-link blue-box">View Orders →<div></div></span></div>
                                 </div>
                             </div>
                         </div>
@@ -370,7 +377,7 @@ const AdminDashboard = () => {
                                         <h2 className="section-title">New Orders (24h)</h2>
                                     </div>
                                     <div className="no-of-items" style={{ background: "#6489f092" }}>
-                                        5
+                                         {dummyData.newOrders.length}
                                     </div>
                                 </div>
                                 <div>
@@ -403,7 +410,7 @@ const AdminDashboard = () => {
                                         </div>
 
                                         <div className="no-of-items" style={{ background: "#fedc5589" }}>
-                                            4
+                                          {dummyData.LowStockItems.length}
                                         </div>
                                     </div>
                                     <div>
