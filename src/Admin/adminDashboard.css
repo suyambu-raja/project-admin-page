@@ -793,4 +793,10 @@
         gap: 0.4rem;
         margin-left:0.5rem;
     }
+
+    .admin-dashboard-container{
+       margin:0rem -0.5rem;
+
+    }
+
 }
